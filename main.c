@@ -257,6 +257,8 @@ err0:
 static void mq_list(void) {
 	FILE *fp = fopen(LIST_FILE, "r");
 	char name[256] = { 0 };
+	if (fp == NULL)
+		return;
 	//printf("%-15s\tmaxmsgs\tmsgsize\tcurmsgs\tflag\n", "   name");
 	while (fgets(name, sizeof(name), fp)) {
 		str_right_trim(name);
